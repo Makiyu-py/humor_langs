@@ -6,7 +6,7 @@ setup(
     version=humor_langs.__version__,
     packages=['humor_langs'],
     python_requires='>=3.4',
-    url='',
+    url='https://github.com/Makiyu-py/humor_langs',
     license='MIT License',
     author='Makiyu',
     author_email='dankerdanker11@gmail.com',
