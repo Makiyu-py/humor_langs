@@ -1,9 +1,11 @@
+import humor_langs
 from setuptools import setup
 
 setup(
-    name='owofy',
-    version='0.1a',
+    name='humor_langs',
+    version=humor_langs.__version__,
     packages=['humor_langs'],
+    python_requires='>=3.4',
     url='',
     license='MIT License',
     author='Makiyu',
