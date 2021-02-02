@@ -2,3 +2,7 @@
 /venv/
 .idea/
 test.py
+
+# Packaging stuff
+dist/
+humor_langs.egg-info

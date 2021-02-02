@@ -21,8 +21,8 @@
 ## Installation
 | Operating System |    Installation via pip    |
 | :--------------: |    :------------------     |
-|      Windows     | `pip install humor_langs`  |
-|    MacOS/Linux   | `pip3 install humor_langs` |
+|      Windows     | `pip install humor-langs`  |
+|    MacOS/Linux   | `pip3 install humor-langs` |
 
 ## Examples
 
@@ -62,7 +62,7 @@ Seah you in the t-ahminahl!
 (yea, it's kind of bad~)
 
 ## License
-This package is currently under the [MIT License.](https://github.com/Makiyu-py/humor_langs/blob/master/LICENSE) 
+This package is currently under the [MIT License](https://github.com/Makiyu-py/humor_langs/blob/master/LICENSE) 
 as of the moment.
 [Click here](https://choosealicense.com/licenses/mit/)
 to learn more about the license.
