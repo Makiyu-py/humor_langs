@@ -1,12 +1,10 @@
-<center>
+<h1 align="center">humor_langs</h1>
+<h4 align="center">Translate your string to humorous text!</h4>
 
-<h1>humor_langs</h1>
-<h4>Translate your string to humorous text!</h4>
-    
-<img alt="PyPI Version" src="https://img.shields.io/pypi/v/humor_langs">
-<img alt="Package License" src="https://img.shields.io/github/license/Makiyu-py/humor_langs">
-
-</center>
+<p align="center">
+    <img alt="PyPI Version" src="https://img.shields.io/pypi/v/humor_langs">
+    <img alt="Package License" src="https://img.shields.io/github/license/Makiyu-py/humor_langs">
+</p>
 
 <br>
 
