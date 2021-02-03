@@ -3,6 +3,7 @@
 
 <p align="center">
     <img alt="PyPI Version" src="https://img.shields.io/pypi/v/humor_langs">
+    <img alt="Package Downloads" src="https://static.pepy.tech/personalized-badge/humor-langs?period=total&units=international_system&left_color=grey&right_color=blue&left_text=Downloads">
     <img alt="Package License" src="https://img.shields.io/github/license/Makiyu-py/humor_langs">
 </p>
 
