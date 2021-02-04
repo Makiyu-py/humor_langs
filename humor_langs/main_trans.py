@@ -3,7 +3,7 @@ import random
 
 
 #           ~~~~~~~~~~~~~~~~~~~~~~~~ TABLE OF CONTENTS ~~~~~~~~~~~~~~~~~~~~~~~~
-# Line 13 - def owofy(
+# Line 16 - def owofy(
 #               text: Union[str, list, tuple, set], *, wanky: bool = False, _print: bool = False
 #       )
 # Line 107 - def clap_emojifier(
