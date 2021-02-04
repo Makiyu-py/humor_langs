@@ -23,5 +23,5 @@ setup(
         "Intended Audience :: End Users/Desktop",
         "Programming Language :: Python :: 3",
     ],
-    keywords="Humor owo translate"  # I couldn't think of something I swear
+    keywords="Humor owo translate copypasta"
 )

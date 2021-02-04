@@ -4,16 +4,27 @@ import random
 
 #           ~~~~~~~~~~~~~~~~~~~~~~~~ TABLE OF CONTENTS ~~~~~~~~~~~~~~~~~~~~~~~~
 # Line 13 - def owofy(
-#           text: Union[str, list, tuple, set], wank_mode: bool = False, print: bool = False
+#               text: Union[str, list, tuple, set], *, wanky: bool = False, _print: bool = False
 #       )
-# Line 96 - def strong_british_accent(
-#                           text: Union[str, list, tuple, set], add_dashes: bool = False, print: bool = False
+# Line 107 - def clap_emojifier(
+#               text: Union[str, list, tuple, set], *, _print: bool = False
+#           )
+# Line 131 - def strong_british_accent(
+#                           text: Union[str, list, tuple, set], *, add_dashes: bool = False, _print: bool = False
 #                       )
 
-def owofy(text: Union[str, list, tuple, set], **kwargs):
+def owofy(text: Union[str, list, tuple, set], *, wanky: bool = False, _print: bool = False):
+    """translates your given text to owo!
 
-    wank_mode = kwargs.get("wanky", False)
-    pmode = kwargs.get("print", False)
+    :param text: the string/array you want to translate to owo on
+    :type text: Union[str, list, tuple, set]
+    :param wanky: A boolean that represents if you want the word 'wank' in your translated text. Defaults to `False`
+    :type wanky: bool
+    :param _print: If you want to print the given output. Defaults to `False`
+    :type _print: bool
+    :return: Your requested, translated text in str/array/printed form!
+    :rtype: Union[str, list, print()]
+    """
 
     def last_replace(s, old, new):
         li = s.rsplit(old, 1)
@@ -50,7 +61,7 @@ def owofy(text: Union[str, list, tuple, set], **kwargs):
 
         smileys = [';;w;;', '^w^', '>w<', 'UwU', r'(・`ω\´・)']
 
-        if not wank_mode:  # to prevent wanking * w *
+        if not wanky:  # to prevent wanking * w *
             textstr = textstr.replace("Rank", "Ⓡank").replace(
                 "rank", "Ⓡank"
             )
@@ -69,7 +80,7 @@ def owofy(text: Union[str, list, tuple, set], **kwargs):
 
         vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
 
-        if not wank_mode:
+        if not wanky:
             textstr = textstr.replace("Ⓡank", "rank").replace("⒧ank", "lank")
 
         for v in vowels:
@@ -88,15 +99,44 @@ def owofy(text: Union[str, list, tuple, set], **kwargs):
                 text_to_owo(abt_to_owo)
             )
 
-        return owoed_msgs if not pmode else print(*owoed_msgs, sep="\n")
+        return owoed_msgs if not _print else print(*owoed_msgs, sep="\n")
 
-    return text_to_owo(text) if not pmode else print(text_to_owo(text))
+    return text_to_owo(text) if not _print else print(text_to_owo(text))
 
 
-def strong_british_accent(text: Union[str, list, tuple, set], **kwargs):
+def clap_emojifier(text: Union[str, list, tuple, set], *, _print: bool = False):
+    """Appends your given string/array the clap 👏 emoji after every word/space.
 
-    dashes = kwargs.get("add_dashes", True)  # Not recommended to put to False lol (for pronunciation reasons)
-    pmode = kwargs.get("print", False)
+    :param text: The text/array you want to "translate"
+    :param _print: A boolean that represents if the given text is going to get printed to the console or not. Defaults to `False`.
+    :return: Your clapped text/array!
+    :rtype: Union[str, list, print()]
+    """
+
+    # Main translator is one line long LMAO
+    def clap_it(_):
+        return " 👏 ".join([*_.split(" ")])
+
+    if isinstance(text, list) or isinstance(text, tuple) or isinstance(text, set):
+        clapped_msgs = []
+
+        for msg in text:
+            clapped_msgs.append(clap_it(msg))
+
+        return clapped_msgs if not _print else print(*clapped_msgs, sep="\n")
+
+    return clap_it(text) if not _print else print(clap_it(text))
+
+
+def strong_british_accent(text: Union[str, list, tuple, set], *, add_dashes: bool = True, _print: bool = False):
+    """Converts your given string/array to a kind-of strong british accent (if you're nonsensical about it...)
+
+    :param text: The text/array you want to convert to
+    :param add_dashes: A boolean that represents if the translation is going to have dashes or not. Defaults to `True`
+    :param _print: A boolean that represents if the translation is going to get printed to the console or not. Defaults to `False`
+    :return: Your translated text/array!
+    :rtype: Union[str, list, print()]
+    """
 
     def brit(brsentence):
 
@@ -118,7 +158,7 @@ def strong_british_accent(text: Union[str, list, tuple, set], **kwargs):
             .replace("or ", "-a ").replace("or", "-a") \
             .replace("ar ", "-a ").replace("ar", "-a")
 
-        if not dashes:
+        if not add_dashes:
             brsentence = brsentence.replace('-', "")
 
         brsentence = brsentence.replace("a", "ah")
@@ -131,7 +171,7 @@ def strong_british_accent(text: Union[str, list, tuple, set], **kwargs):
         for br_msg in text:
             britished_msgs.append(brit(br_msg))  # it apparently list the items as lists if I do a one-liner lol
 
-        return britished_msgs if not pmode else print(*britished_msgs, sep="\n")
+        return britished_msgs if not _print else print(*britished_msgs, sep="\n")
 
     msg = brit(text)
-    return msg if not pmode else print(msg)
+    return msg if not _print else print(msg)

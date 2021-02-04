@@ -9,9 +9,8 @@
 
 <br>
 
-> **QUICK NOTE:**
->   
-> This package only has 2 functions at the moment, and planning to add more in the future, 
+> **QUICK NOTE:**\
+> This package only has 3 functions at the moment, and planning to add more in the future, 
 > so watch out for future updates soon!
 
 ## What This Package Can Give You
@@ -35,7 +34,7 @@ humor_langs.owofy(["what are you doing over there?",
        "hello there reader!",
        "See you in the terminal!"
        ],
-      print=True)
+      _print=True)
 ```
 This will return...
 ```
@@ -43,6 +42,26 @@ Hewoooooo >w< what awe u doing ovew thewe? O·w·O
 Haiiiiii 0w0 hewwo thewe weadew! ^w^
 *W* See u in the tewminyaw! ;;w;;
 ```
+
+### Adding a list of sentences *clap* emojis on every other word
+```python
+from humor_langs import clap_emojifier
+
+clap_emojifier(["what are you doing over there?",
+       "hello there reader!",
+       "See you in the terminal!"
+       ],
+      _print=True)
+```
+then this would return...
+```
+what 👏 are 👏 you 👏 doing 👏 over 👏 there?
+hello 👏 there 👏 reader!
+See 👏 you 👏 in 👏 the 👏 terminal!
+```
+> **NOTE**:\
+> When testing it out, if the outputs look like some random question marks, 
+> *then your console probably doesn't support emojis.*
 
 ### Converting a list of sentences to a kind-of strong british accent
 ```python
@@ -52,7 +71,7 @@ strong_british_accent(["what are you doing over there?",
        "hello there reader!",
        "See you in the terminal!"
        ],
-      print=True)
+      _print=True)
 ```
 then this'll return...
 ```
@@ -63,7 +82,7 @@ Seah you in the t-ahminahl!
 (yea, it's kind of bad~)
 
 ## License
-This package is currently under the [MIT License](https://github.com/Makiyu-py/humor_langs/blob/master/LICENSE) 
+This package is [currently under the MIT License](https://github.com/Makiyu-py/humor_langs/blob/master/LICENSE) 
 as of the moment.
 [Click here](https://choosealicense.com/licenses/mit/)
 to learn more about the license.
