@@ -1,15 +1,13 @@
-from typing import Union, Sequence
+from typing import Sequence
 import warnings
 import random
 
 
-def owofy(
-    text: Union[str, list, tuple, set], *, wanky: bool = False, _print: bool = False
-):
+def owofy(text: Sequence, *, wanky: bool = False, _print: bool = False):
     """translates your given text to owo!
 
     :param text: the string/array you want to translate to owo on
-    :type text: Union[str, list, tuple, set]
+    :type text: typing.Sequence
     :param wanky: A boolean that represents if you want the word 'wank' in your translated text. Defaults to `False`
     :type wanky: bool
     :param _print: If you want to print the given output. Defaults to `False`
@@ -86,18 +84,15 @@ def owofy(
 
         return textstr
 
-    if isinstance(text, list) or isinstance(text, tuple) or isinstance(text, set):
-        owoed_msgs = []
-
-        for abt_to_owo in text:
-            owoed_msgs.append(text_to_owo(abt_to_owo))
+    if not isinstance(text, str):
+        owoed_msgs = map(text_to_owo, text)
 
         return owoed_msgs if not _print else print(*owoed_msgs, sep="\n")
 
     return text_to_owo(text) if not _print else print(text_to_owo(text))
 
 
-def clap_emojifier(text: Union[str, list, tuple, set], *, _print: bool = False):
+def clap_emojifier(text: Sequence, *, _print: bool = False):
     """Appends your given string/array the clap 👏 emoji after every word/space.
 
     :param text: The text/array you want to "translate"
@@ -107,14 +102,10 @@ def clap_emojifier(text: Union[str, list, tuple, set], *, _print: bool = False):
     """
 
     # Main translator is one line long LMAO
-    def clap_it(_):
-        return " 👏 ".join([*_.split(" ")])
+    clap_it = lambda _: " 👏 ".join([*_.split(" ")])
 
-    if isinstance(text, list) or isinstance(text, tuple) or isinstance(text, set):
-        clapped_msgs = []
-
-        for msg in text:
-            clapped_msgs.append(clap_it(msg))
+    if not isinstance(text, str):
+        clapped_msgs = map(clap_it, text)
 
         return clapped_msgs if not _print else print(*clapped_msgs, sep="\n")
 
@@ -122,7 +113,7 @@ def clap_emojifier(text: Union[str, list, tuple, set], *, _print: bool = False):
 
 
 def strong_british_accent(
-    text: Union[str, list, tuple, set], *, add_dashes: bool = True, _print: bool = False
+    text: Sequence, *, add_dashes: bool = True, _print: bool = False
 ):
     """Converts your given string/array to a kind-of strong british accent (if you're nonsensical about it...)
 
@@ -170,13 +161,8 @@ def strong_british_accent(
 
         return brsentence
 
-    if isinstance(text, list) or isinstance(text, tuple) or isinstance(text, set):
-        britished_msgs = []
-
-        for br_msg in text:
-            britished_msgs.append(
-                brit(br_msg)
-            )  # it apparently list the items as lists if I do a one-liner lol
+    if not isinstance(text, str):
+        britished_msgs = map(brit, text)
 
         return britished_msgs if not _print else print(*britished_msgs, sep="\n")
 
