@@ -1,4 +1,5 @@
-from typing import Union
+from typing import Union, Sequence
+import warnings
 import random
 
 
@@ -175,3 +176,42 @@ def strong_british_accent(text: Union[str, list, tuple, set], *, add_dashes: boo
 
     msg = brit(text)
     return msg if not _print else print(msg)
+
+def text_to_emoji(text: Sequence, *, _print: bool = False):
+    num_words = {"0": "zero", "1": "one", "2": "two", "3": "three", "4": "four", "5": "five", "6": "six", "7": "seven", "8": "eight", "9": "nine"}
+    two_char_emojis = {"<3": "heart", ":)": "slight_smile", ":D": "smile", "B)": "sunglasses", ":P": "stuck_out_tongue", ":(": "frowning", ";(": "sob"}
+    special_char_words = {"?": "question", "!": "exclamation", "#": "hash", "*": "asterisk"}
+    unicode_base = ":{}:"
+    def _convert_to_emoji(argument):
+        new_text = ""
+        finished_index = None  # this var only exists to skip next char from two_char_emojis
+        for index, i in enumerate(argument):
+            if index == finished_index:
+                continue
+            elif i+text[index+1] in two_char_emojis:
+                new_text += unicode_base.format(two_char_emojis[i+text[index+1]])
+                finished_index = index+1
+            elif i.isalpha():
+                new_text += unicode_base.format("regional_indicator_"+i)
+            elif i.isnumeric():
+                new_text += unicode_base.format(num_words[i])
+            elif i in special_char_words:
+                new_text += unicode_base.format(special_char_words[i])
+            new_text += ' '
+
+        return new_text
+
+    def print_emoji_text_to_emojis(argument):
+        try:
+            import emoji
+        except ImportError:
+            warnings.warn("The emojis may not be printed properly since you didn't install the `emoji` module for converting emoji codes to emojis.")
+            return print(argument)
+        return print(emoji.emojize(argument, use_aliases=True, variant="emoji_type"))
+
+    if isinstance(text, str):
+        out =  _convert_to_emoji(text)
+        return print_emoji_text_to_emojis(out) if _print else out
+
+    outputs = map(_convert_to_emoji, text)
+    return outputs if not _print else map(print_emoji_text_to_emojis, text)
