@@ -3,18 +3,6 @@ import warnings
 import random
 
 
-#           ~~~~~~~~~~~~~~~~~~~~~~~~ TABLE OF CONTENTS ~~~~~~~~~~~~~~~~~~~~~~~~
-# Line 16 - def owofy(
-#               text: Union[str, list, tuple, set], *, wanky: bool = False, _print: bool = False
-#       )
-# Line 107 - def clap_emojifier(
-#               text: Union[str, list, tuple, set], *, _print: bool = False
-#           )
-# Line 131 - def strong_british_accent(
-#                           text: Union[str, list, tuple, set], *, add_dashes: bool = False, _print: bool = False
-#                       )
-
-
 def owofy(
     text: Union[str, list, tuple, set], *, wanky: bool = False, _print: bool = False
 ):
