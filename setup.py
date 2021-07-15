@@ -7,21 +7,21 @@ with open("README.md", "r", encoding="UTF-8") as f:
 
 
 setup(
-    name='humor_langs',
-    description='Translate your string to humorous text!',
+    name="humor_langs",
+    description="Translate your string to humorous text!",
     long_description=long_desc,
     long_description_content_type="text/markdown",
     version=humor_langs.__version__,
-    packages=['humor_langs'],
-    author='Makiyu',
-    author_email='dankerdanker11@gmail.com',
-    url='https://github.com/Makiyu-py/humor_langs',
-    license='MIT',
+    packages=["humor_langs"],
+    author="Makiyu",
+    author_email="73825066+Makiyu-py@users.noreply.github.com",
+    url="https://github.com/Makiyu-py/humor_langs",
+    license="MIT",
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "Intended Audience :: End Users/Desktop",
         "Programming Language :: Python :: 3",
     ],
-    keywords="Humor owo translate copypasta"
+    keywords="Humor owo translate copypasta",
 )

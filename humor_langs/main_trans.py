@@ -14,7 +14,10 @@ import random
 #                           text: Union[str, list, tuple, set], *, add_dashes: bool = False, _print: bool = False
 #                       )
 
-def owofy(text: Union[str, list, tuple, set], *, wanky: bool = False, _print: bool = False):
+
+def owofy(
+    text: Union[str, list, tuple, set], *, wanky: bool = False, _print: bool = False
+):
     """translates your given text to owo!
 
     :param text: the string/array you want to translate to owo on
@@ -35,11 +38,14 @@ def owofy(text: Union[str, list, tuple, set], *, wanky: bool = False, _print: bo
 
         exclamations = ("?", "!", ".", "*")
 
-        prefixes = ["Haii UwU ",
-                    "Hiiiiii 0w0 ",
-                    "Hewoooooo >w< ",
-                    "*W* ", "mmm~ uwu ",
-                    "Oh... Hi there {} ".format(random.choice(['·///·', '(。O⁄ ⁄ω⁄ ⁄ O。)']))]  # I need a life, help me
+        prefixes = [
+            "Haii UwU ",
+            "Hiiiiii 0w0 ",
+            "Hewoooooo >w< ",
+            "*W* ",
+            "mmm~ uwu ",
+            "Oh... Hi there {} ".format(random.choice(["·///·", "(。O⁄ ⁄ω⁄ ⁄ O。)"])),
+        ]  # I need a life, help me
 
         subs = {
             "why": "wai",
@@ -50,45 +56,45 @@ def owofy(text: Union[str, list, tuple, set], *, wanky: bool = False, _print: bo
             "Hi": "Hai",
             "hi": "hai",
             "you": "u",
-            'L': 'W',
+            "L": "W",
             "l": "w",
             "R": "W",
-            "r": "w"
+            "r": "w",
         }
 
         textstr = random.choice(prefixes) + textstr
         if not textstr.endswith(exclamations):
             textstr += " uwu"
 
-        smileys = [';;w;;', '^w^', '>w<', 'UwU', r'(・`ω\´・)']
+        smileys = [";;w;;", "^w^", ">w<", "UwU", r"(・`ω\´・)"]
 
         if not wanky:  # to prevent wanking * w *
-            textstr = textstr.replace("Rank", "Ⓡank").replace(
-                "rank", "Ⓡank"
-            )
-            textstr = textstr.replace("Lank", "⒧ank").replace(
-                "lank", "⒧ank"
-            )
+            textstr = textstr.replace("Rank", "Ⓡank").replace("rank", "Ⓡank")
+            textstr = textstr.replace("Lank", "⒧ank").replace("lank", "⒧ank")
 
         textstr = last_replace(textstr, "there!", "there! *pounces on u*")
 
         for key, val in subs.items():
             textstr = textstr.replace(key, val)
 
-        textstr = last_replace(textstr, '!', '! {}'.format(random.choice(smileys)))
-        textstr = last_replace(textstr, '?', '? {}'.format(random.choice(['owo', "O·w·O"])))
-        textstr = last_replace(textstr, '.', '. {}'.format(random.choice(smileys)))
+        textstr = last_replace(textstr, "!", "! {}".format(random.choice(smileys)))
+        textstr = last_replace(
+            textstr, "?", "? {}".format(random.choice(["owo", "O·w·O"]))
+        )
+        textstr = last_replace(textstr, ".", ". {}".format(random.choice(smileys)))
 
-        vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+        vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
 
         if not wanky:
             textstr = textstr.replace("Ⓡank", "rank").replace("⒧ank", "lank")
 
         for v in vowels:
-            if 'n{}'.format(v) in textstr:
-                textstr = textstr.replace('n{}'.format(v), 'ny{}'.format(v))
-            if 'N{}'.format(v) in textstr:
-                textstr = textstr.replace('N{}'.format(v), 'N{}{}'.format('Y' if v.isupper() else 'y', v))
+            if "n{}".format(v) in textstr:
+                textstr = textstr.replace("n{}".format(v), "ny{}".format(v))
+            if "N{}".format(v) in textstr:
+                textstr = textstr.replace(
+                    "N{}".format(v), "N{}{}".format("Y" if v.isupper() else "y", v)
+                )
 
         return textstr
 
@@ -96,9 +102,7 @@ def owofy(text: Union[str, list, tuple, set], *, wanky: bool = False, _print: bo
         owoed_msgs = []
 
         for abt_to_owo in text:
-            owoed_msgs.append(
-                text_to_owo(abt_to_owo)
-            )
+            owoed_msgs.append(text_to_owo(abt_to_owo))
 
         return owoed_msgs if not _print else print(*owoed_msgs, sep="\n")
 
@@ -129,7 +133,9 @@ def clap_emojifier(text: Union[str, list, tuple, set], *, _print: bool = False):
     return clap_it(text) if not _print else print(clap_it(text))
 
 
-def strong_british_accent(text: Union[str, list, tuple, set], *, add_dashes: bool = True, _print: bool = False):
+def strong_british_accent(
+    text: Union[str, list, tuple, set], *, add_dashes: bool = True, _print: bool = False
+):
     """Converts your given string/array to a kind-of strong british accent (if you're nonsensical about it...)
 
     :param text: The text/array you want to convert to
@@ -144,9 +150,14 @@ def strong_british_accent(text: Union[str, list, tuple, set], *, add_dashes: boo
         brsentence = brsentence.replace("it was ", "it was quite ")
 
         # Words relating to ppl
-        brsentence = brsentence.replace("friend", "mate").replace("pal", "mate") \
-            .replace("buddy", "mate").replace("person", "mate") \
-            .replace("man", "mate").replace("people", "mates")
+        brsentence = (
+            brsentence.replace("friend", "mate")
+            .replace("pal", "mate")
+            .replace("buddy", "mate")
+            .replace("person", "mate")
+            .replace("man", "mate")
+            .replace("people", "mates")
+        )
 
         # Some weird past tense stuff i don't even know
         brsentence = brsentence.replace("standing", "stood")
@@ -155,12 +166,17 @@ def strong_british_accent(text: Union[str, list, tuple, set], *, add_dashes: boo
         # Pronunciations of syllables
         brsentence = brsentence.replace("o ", "oh ")
         brsentence = brsentence.replace("ee", "ea")
-        brsentence = brsentence.replace("er ", "-a ").replace("er", "-a") \
-            .replace("or ", "-a ").replace("or", "-a") \
-            .replace("ar ", "-a ").replace("ar", "-a")
+        brsentence = (
+            brsentence.replace("er ", "-a ")
+            .replace("er", "-a")
+            .replace("or ", "-a ")
+            .replace("or", "-a")
+            .replace("ar ", "-a ")
+            .replace("ar", "-a")
+        )
 
         if not add_dashes:
-            brsentence = brsentence.replace('-', "")
+            brsentence = brsentence.replace("-", "")
 
         brsentence = brsentence.replace("a", "ah")
 
@@ -170,34 +186,64 @@ def strong_british_accent(text: Union[str, list, tuple, set], *, add_dashes: boo
         britished_msgs = []
 
         for br_msg in text:
-            britished_msgs.append(brit(br_msg))  # it apparently list the items as lists if I do a one-liner lol
+            britished_msgs.append(
+                brit(br_msg)
+            )  # it apparently list the items as lists if I do a one-liner lol
 
         return britished_msgs if not _print else print(*britished_msgs, sep="\n")
 
     msg = brit(text)
     return msg if not _print else print(msg)
 
+
 def text_to_emoji(text: Sequence, *, _print: bool = False):
-    num_words = {"0": "zero", "1": "one", "2": "two", "3": "three", "4": "four", "5": "five", "6": "six", "7": "seven", "8": "eight", "9": "nine"}
-    two_char_emojis = {"<3": "heart", ":)": "slight_smile", ":D": "smile", "B)": "sunglasses", ":P": "stuck_out_tongue", ":(": "frowning", ";(": "sob"}
-    special_char_words = {"?": "question", "!": "exclamation", "#": "hash", "*": "asterisk"}
+    num_words = {
+        "0": "zero",
+        "1": "one",
+        "2": "two",
+        "3": "three",
+        "4": "four",
+        "5": "five",
+        "6": "six",
+        "7": "seven",
+        "8": "eight",
+        "9": "nine",
+    }
+    two_char_emojis = {
+        "<3": "heart",
+        ":)": "slight_smile",
+        ":D": "smile",
+        "B)": "sunglasses",
+        ":P": "stuck_out_tongue",
+        ":(": "frowning",
+        ";(": "sob",
+    }
+    special_char_words = {
+        "?": "question",
+        "!": "exclamation",
+        "#": "hash",
+        "*": "asterisk",
+    }
     unicode_base = ":{}:"
+
     def _convert_to_emoji(argument):
         new_text = ""
-        finished_index = None  # this var only exists to skip next char from two_char_emojis
+        finished_index = (
+            None  # this var only exists to skip next char from two_char_emojis
+        )
         for index, i in enumerate(argument):
             if index == finished_index:
                 continue
-            elif i+text[index+1] in two_char_emojis:
-                new_text += unicode_base.format(two_char_emojis[i+text[index+1]])
-                finished_index = index+1
+            elif i + text[index + 1] in two_char_emojis:
+                new_text += unicode_base.format(two_char_emojis[i + text[index + 1]])
+                finished_index = index + 1
             elif i.isalpha():
-                new_text += unicode_base.format("regional_indicator_"+i)
+                new_text += unicode_base.format("regional_indicator_" + i)
             elif i.isnumeric():
                 new_text += unicode_base.format(num_words[i])
             elif i in special_char_words:
                 new_text += unicode_base.format(special_char_words[i])
-            new_text += ' '
+            new_text += " "
 
         return new_text
 
@@ -205,12 +251,14 @@ def text_to_emoji(text: Sequence, *, _print: bool = False):
         try:
             import emoji
         except ImportError:
-            warnings.warn("The emojis may not be printed properly since you didn't install the `emoji` module for converting emoji codes to emojis.")
+            warnings.warn(
+                "The emojis may not be printed properly since you didn't install the `emoji` module for converting emoji codes to emojis."
+            )
             return print(argument)
         return print(emoji.emojize(argument, use_aliases=True, variant="emoji_type"))
 
     if isinstance(text, str):
-        out =  _convert_to_emoji(text)
+        out = _convert_to_emoji(text)
         return print_emoji_text_to_emojis(out) if _print else out
 
     outputs = map(_convert_to_emoji, text)
