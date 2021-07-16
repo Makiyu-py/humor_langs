@@ -7,4 +7,5 @@ test.py
 
 # Packaging stuff
 dist/
+build/
 humor_langs.egg-info
