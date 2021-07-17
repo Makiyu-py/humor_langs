@@ -208,7 +208,10 @@ def text_to_emoji(text: Sequence, *, _print: bool = False):
         for index, i in enumerate(argument):
             if index == finished_index:
                 continue
-            elif i + text[index + 1] in two_char_emojis:
+            elif (
+                not index == len(argument) - 1
+                and i + text[index + 1] in two_char_emojis
+            ):
                 new_text += unicode_base.format(two_char_emojis[i + text[index + 1]])
                 finished_index = index + 1
             elif i.isalpha():
@@ -217,6 +220,8 @@ def text_to_emoji(text: Sequence, *, _print: bool = False):
                 new_text += unicode_base.format(num_words[i])
             elif i in special_char_words:
                 new_text += unicode_base.format(special_char_words[i])
+            else:
+                new_text += i
             new_text += " "
 
         return new_text
